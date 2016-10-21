@@ -23,3 +23,11 @@ exams:
   default_correct: false
   notify_hour: 8
   notify_priority: 0
+questions:
+  answer_type:
+    single_choice: "single_choice"
+    multi_choice: "multi_choice"
+    text: "text"
+  status:
+    :confirmed: "Approved"
+    :rejected: "Rejected"

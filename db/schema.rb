@@ -56,27 +56,23 @@ ActiveRecord::Schema.define(version: 20161019015859) do
     t.index ["user_id"], name: "index_exams_on_user_id", using: :btree
   end
 
-  create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.integer  "question_number"
-    t.integer  "subject_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["subject_id"], name: "index_levels_on_subject_id", using: :btree
-  end
-
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "type"
-    t.text     "content",    limit: 65535
-    t.integer  "level_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.index ["level_id"], name: "index_questions_on_level_id", using: :btree
+    t.integer  "answer_type"
+    t.text     "content",     limit: 65535
+    t.integer  "status"
+    t.integer  "level"
+    t.integer  "subject_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["subject_id"], name: "index_questions_on_subject_id", using: :btree
   end
 
   create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "question_number"
+    t.integer  "hard"
+    t.integer  "medium"
+    t.integer  "easy"
     t.integer  "duration"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -131,8 +127,7 @@ ActiveRecord::Schema.define(version: 20161019015859) do
   add_foreign_key "exam_questions", "questions"
   add_foreign_key "exams", "subjects"
   add_foreign_key "exams", "users"
-  add_foreign_key "levels", "subjects"
-  add_foreign_key "questions", "levels"
+  add_foreign_key "questions", "subjects"
   add_foreign_key "suggest_answers", "suggest_questions"
   add_foreign_key "suggest_questions", "subjects"
   add_foreign_key "suggest_questions", "users"

@@ -1,0 +1,9 @@
+<% if is_correct %>
+  <span class="label label-success pull-right">
+    <%= t "labels.status.exam_question.correct" %>
+  </span>
+<% else %>
+  <span class="label label-danger pull-right">
+    <%= t "labels.status.exam_question.incorrect" %>
+  </span>
+<% end %>

@@ -1,6 +1,6 @@
 class Subject < ApplicationRecord
+  has_many :questions
   has_many :exams
-  has_many :levels
   has_many :suggest_questions
 
   validates :name, presence: true, length: {maximum: 50}

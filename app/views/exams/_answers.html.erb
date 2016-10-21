@@ -1,0 +1,38 @@
+<ul>
+  <%= question_builder.simple_fields_for :exam_answers do |answer_builder| %>
+    <% if question_builder.object.question.multi_choice? %>
+      <li>
+        <% if answer_builder.object.persisted? %>
+          <%= answer_builder.check_box :_destroy,
+            {checked: true, disabled: is_disabled}, 0, 1 %>
+          <%= answer_builder.hidden_field :id,
+            value: answer_builder.object.id %>
+        <% else %>
+          <%= answer_builder.check_box :answer_id,
+            {checked: false, disabled: is_disabled},
+            answer_builder.object.answer.id, nil %>
+        <% end %>
+        <%= answer_builder.object.answer.content %>
+      </li>
+    <% elsif question_builder.object.question.single_choice? %>
+      <% question_builder.object.question.answers.each do |answer| %>
+        <li>
+          <% if answer_builder.object.answer == answer %>
+            <%= answer_builder.radio_button :answer_id,
+              answer.id, checked: true, disabled: is_disabled %>
+          <% else %>
+            <%= answer_builder.radio_button :answer_id,
+              answer.id, checked: false, disabled: is_disabled %>
+          <% end %>
+          <%= answer.content %>
+        </li>
+      <% end %>
+    <% else %>
+      <%= tag(:br) %>
+      <%= answer_builder.input :content,
+        placeholder: t(".content_answer_holder"), label: false,
+        hint: t(".content_answer_hint"), disabled: is_disabled %>
+    <% end %>
+  <% end %>
+</ul>
+

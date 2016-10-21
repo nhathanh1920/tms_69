@@ -1,0 +1,20 @@
+<% is_disabled = !@exam.testing? %>
+<%= simple_form_for @exam do |f| %>
+  <ol>
+    <%= f.simple_fields_for :exam_questions do |question_builder| %>
+      <li>
+        <%= question_builder.object.question.content %>
+        <%= render "answers", question_builder: question_builder,
+          is_disabled: is_disabled %>
+        <%= tag(:hr) %>
+      </li>
+    <% end %>
+  </ol>
+  <%= f.button :submit, t(".save"), name: :save,
+    class: "btn btn-warning pull-left",
+    id: "save_button", disabled: is_disabled %>
+  <%= f.button :submit, t(".finish"), name: :finish,
+    data: {confirm: t(".finish_confirm")},
+    class: "btn btn-danger pull-right",
+    id: "finish_button", disabled: is_disabled %>
+<% end %>

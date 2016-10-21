@@ -168,3 +168,32 @@ en:
         inactive: "inactive"
   start: "Start"
   view: "View"
+  exams:
+    index:
+      created_date: "Created Date"
+      subject_name: "Subject's name"
+      status: "Status"
+      duration: "Duration"
+      question_number: "Question number"
+      spent_time: "Spent Time"
+      score: "Score"
+      action: "Action"
+      create_button: "Create Exam"
+      exam_list: "Examination List"
+      title: "Exams"
+    show:
+      time_remain: "Time remain:"
+      hour: "Hours"
+      minute: "Minutes"
+      second: "Seconds"
+    questions:
+      save: "Save"
+      finish: "Finish"
+      finish_confirm: "Are you sure you want to finish this exam? This action cannot be undone!"
+    answers:
+      content_answer: "Your answer"
+      content_answer_holder: "Type your answer here..."
+      content_answer_hint: "This is a text answer. Please type your answer to the above field."
+    exam:
+      result: "Exam's result"
+      check_button: "Admin checking"
