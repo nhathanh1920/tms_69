@@ -8,6 +8,14 @@ class ExamsController < ApplicationController
       .paginate page: params[:page], per_page: Settings.pagination.per_page
   end
 
+  def show
+    @exam = Exam.find_by id: params[:id]
+    @exam.update_status
+    @exam.exam_questions.each do |exam_question|
+      exam_question.build_exam_answers
+    end
+  end
+
   def create
     @exam = current_user.exams.new exam_params
     if @exam.save

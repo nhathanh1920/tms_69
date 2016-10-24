@@ -1,0 +1,17 @@
+<% @levels.each do |level| %>
+  <tr>
+    <td><%= link_to level.name, [:admin, level] %></td>
+    <td><%= level.question_number %></td>
+    <td>
+      <div class="btn-group" role="group">
+        <%= link_to t(".edit"), edit_admin_level_path(level.id),
+          class: "glyphicon glyphicon-pencil" %>
+      </div>
+       <div class="btn-group" role="group">
+        <%= link_to t(".delete"), admin_level_path(level.id),
+          method: :delete, data: {confirm: t(".delete_levels_confirm")},
+          class: "glyphicon glyphicon-remove" %>
+      </div>
+    </td>
+  </tr>
+<% end %>

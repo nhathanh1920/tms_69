@@ -3011,7 +3011,7 @@ select[multiple].form-group-lg .form-control {
     padding-top: 6px;
   }
 }
-.btn {
+/*.btn {
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -3400,6 +3400,10 @@ input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
+}*/
+.btn:hover, .btn:focus, .btn.focus {
+  color: #F58703;
+  text-decoration: none;
 }
 .fade {
   opacity: 0;
@@ -3578,7 +3582,7 @@ tbody.collapse.in {
     left: 0;
   }
 }
-.btn-group,
+/*.btn-group,
 .btn-group-vertical {
   position: relative;
   display: inline-block;
@@ -3745,8 +3749,8 @@ tbody.collapse.in {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
-}
-.input-group {
+}*/
+/*.input-group {
   position: relative;
   display: table;
   border-collapse: separate;
@@ -3899,7 +3903,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .input-group-btn:last-child > .btn,
 .input-group-btn:last-child > .btn-group {
   margin-left: -1px;
-}
+}*/
 .nav {
   padding-left: 0;
   margin-bottom: 0;
@@ -6615,51 +6619,13 @@ p {
     display: none !important;
   }
 }
-.btn-primarys {
-  /*background:#F58703;*/
-  color:#fff;
-  border:none;
-  margin-left: -14px;
-  margin-top: -27px;
-  position: relative;
-  height: 38px;
-  font-size: 24px;
-  padding: 0 32px;
-  cursor: pointer;
-  transition: 800ms ease all;
-  outline: none;
-}
-.btn-primarys:hover {
-  background: #fff;
-  color:#F58703;
-}
-.btn-primarys:before,.btn-primarys:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 2px;
-  width: 0;
-  background: #F58703;
-  transition: 400ms ease all;
-}
-.btn-primarys:after {
-  right: inherit;
-  top: inherit;
-  left: 0;
-  bottom: 0;
-}
-.btn-primarys:hover:before,.btn-primarys:hover:after {
-  width: 100%;
-  transition: 800ms ease all;
-}
-.banner-w3agile h3 span {
-  color: #F58703;
-}
-.table {
-  width: 100%;
-  max-width: 100%;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
+  .banner-w3agile h3 span {
+    color: #F58703;
+  }
+  .table {
+    width: 100%;
+    max-width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
 }

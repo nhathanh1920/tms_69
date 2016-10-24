@@ -26,6 +26,22 @@
         <%= f.button :submit, t("login") %>
       </p>
       <% end %>
+      <center>
+        <div class="social-icons w3agile">
+          <ul>
+            <li><%= t "Follow" %></li>
+            <li>
+              <%= link_to image_tag("fb.png", class:"img-responsive") %>
+            </li>
+            <li>
+              <%= link_to image_tag("tw.png", class:"img-responsive") %>
+            </li>
+            <li>
+              <%= link_to image_tag("gp.png", class:"img-responsive") %>
+            </li>
+          </ul>
+        </div>
+      </center>
       <%= render "users/shared/links" %>
     </div>
   </div>

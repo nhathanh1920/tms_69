@@ -1,0 +1,37 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1><%= yield(:modal_title) %></h1>
+    </div>
+    <%= form_for [:admin, @level] do |f| %>
+      <div class="modal-body">
+        <div class="form_errors">
+          <%= render "shared/error_messages", object: @level %>
+        </div>
+         <div class="form-group">
+          <%= f.label :subject_id %>
+          <%= f.select :subject_id,
+            @subjects.collect {|subject| [subject.name, subject.id]},
+              {}, {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :question_number %>
+          <%= f.text_field :question_number, class: "form-control" %>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <span class="pull-right">
+          <%= f.submit t("creates"), class: "btn btn-primary" %>
+        </span>
+        <span class="pull-left">
+          <%= link_to t(".cancel_button"), admin_levels_path,
+            class: "btn btn-warning", data: {dismiss: "modal"} %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>

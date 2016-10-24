@@ -2,15 +2,17 @@
   <tr>
     <td><%= link_to subject.name, [:admin, subject] %></td>
     <td><%= subject.duration %></td>
-    <td>
+    <td class="text-center">
       <div class="btn-group" role="group">
-        <%= link_to t(".edit"), edit_admin_subject_path(subject.id),
-          class: "glyphicon glyphicon-pencil" %>
+      <%= link_to t(".edit"), edit_admin_subject_path(subject.id),
+        class: "glyphicon glyphicon-edit" %>
       </div>
-       <div class="btn-group" role="group">
-        <%= link_to t(".delete"), admin_subject_path(subject.id),
-          method: :delete, data: {confirm: t(".delete_subject_confirm")},
-          class: "glyphicon glyphicon-remove" %>
+    </td>
+   <td class="text-center">
+    <div class="btn-group" role="group">
+    <%= link_to t(".delete"), admin_subject_path(subject.id),
+      method: :delete, data: {confirm: t(".delete_subject_confirm")},
+      class: "glyphicon glyphicon-trash" %>
       </div>
     </td>
   </tr>

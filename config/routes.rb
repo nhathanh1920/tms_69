@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     root "subjects#index"
     resources :subjects
     resources :users
+    resources :levels
   end
 
   get "help" => "static_pages#help"
