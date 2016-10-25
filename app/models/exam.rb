@@ -34,11 +34,10 @@ class Exam < ApplicationRecord
     for i in 0...level_ids.length
       confirmed_questions = subject.levels[i].questions.order("RAND()")
         .limit subject.levels[i].question_number
-
       confirmed_questions.each do |question|
       self.exam_questions.build question_id: question.id,
         is_correct: Settings.exams.default_correct
-    end
+      end
     end
   end
 end
