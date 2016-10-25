@@ -21,6 +21,8 @@ gem "simple_form"
 gem "devise"
 gem "cancancan"
 gem "jquery-easing-rails"
+gem "jquery-countdown-rails"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end

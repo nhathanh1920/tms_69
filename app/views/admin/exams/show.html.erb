@@ -1,0 +1,15 @@
+<div class="col-md-10 col-md-offset-1 width-flash">
+  <div class="row exam">
+    <div class="col-md-8 col-md-offset-1">
+      <div class="title">
+        <%= render "shared/exam_status", exam: @exam %>
+        <%= l @exam.started_at, format: :datetime_format %>
+        <%= tag(:br) %>
+        <center><b><h2><%= @exam.subject.name %></h2></b></center>
+        <%= tag(:hr) %>
+        <input type="hidden" name="duration" id="duration" value="0">
+      </div>
+      <%= render "questions" %>
+    </div>
+  </div>
+</div>

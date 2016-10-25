@@ -1,0 +1,24 @@
+<% is_disabled = true %>
+<% is_disabled_checking = @exam.start? || @exam.testing? %>
+<%= simple_form_for [:admin, @exam] do |f| %>
+  <ol>
+    <%= f.simple_fields_for :exam_questions do |question_builder| %>
+      <li>
+        <%= question_builder.object.question.content %>
+        <%= render "answers", question_builder: question_builder,
+          is_disabled: is_disabled %>
+        <%= question_builder.input :is_correct,
+          disabled: is_disabled_checking %>
+        <%= tag(:hr) %>
+      </li>
+    <% end %>
+  </ol>
+  <%= f.button :submit, t(".save"), name: :save,
+    class: "btn btn-success pull-left",
+    id: "save_button", disabled: is_disabled_checking %>
+  <% if @exam.uncheck? %>
+    <%= f.button :submit, t(".checked"), name: :checked,
+      class: "btn btn-danger pull-right",
+      id: "checked_button" %>
+  <% end %>
+<% end %>

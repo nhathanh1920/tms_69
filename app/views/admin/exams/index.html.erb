@@ -1,15 +1,5 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <div class="form-exam">
-      <%= simple_form_for @exam, html: {class: "form-inline"},
-        remote: true do |f| %>
-        <%= f.select :subject_id,
-          @subjects.collect {|subject| [subject.name, subject.id]},
-          {}, {class: "form-control"} %>
-        <%= f.submit t("create_button"), class: "btn btn-primary" %>
-      <% end %>
-    </div>
-    <hr>
     <h2><%= t ".exam_list" %></h2>
     <table class="table table-hover table-bordered">
       <thead>
@@ -22,6 +12,7 @@
           <th class="spent_time"><%= t ".spent_time" %></th>
           <th class="score"><%= t ".score" %></th>
           <th class="action"><%= t ".action" %></th>
+          <th class="user center"><%= t ".user" %></th>
         </tr>
       </thead>
       <tbody id = "body_table_data">

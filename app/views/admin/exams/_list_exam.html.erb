@@ -1,0 +1,25 @@
+<% @exams.each do |exam| %>
+  <tr>
+    <td><%= l exam.created_at, format: :datetime_format %></td>
+    <td><%= exam.name %></td>
+    <td><%= render "shared/exam_status", exam: exam %></td>
+    <td class="center"><%= exam.subject.duration %></td>
+    <td class="center"><%= exam.exam_questions.size %></td>
+    <td><%= l Time.at(exam.spent_time).utc, format: :time_format  %></td>
+    <td class="center">
+      <% if exam.uncheck? || exam.checked? %>
+        <%= "#{exam.score}/#{exam.exam_questions.count}" %>
+      <% else %>
+        <%= "-" %>
+      <% end %>
+    </td>
+    <% if exam.uncheck? || exam.checked? %>
+      <td><%= link_to t(".check_button"), admin_exam_path(exam),
+        class: "btn btn-primary" %></td>
+    <% else %>
+      <td><%= link_to t(".view_button"), admin_exam_path(exam),
+        class: "btn btn-success" %></td>
+    <% end %>
+    <td class="center"><%= exam.user.name %></td>
+  </tr>
+<% end %>
